@@ -1,0 +1,1 @@
+if (Test-Path "C:\ProgramData\Intune\Ubuntu\DiskReady.flag") { exit 0 } else { exit 1 }
