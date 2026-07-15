@@ -6,7 +6,7 @@ $body = @{
     client_secret = ""
     grant_type    = ""
 }
-$auth = (Invoke-WebRequest -Uri "https://login.microsoftonline.com/af1bbf3d-7aa3-4e3f-8173-c8889d944e6a/oauth2/v2.0/token" -Method POST -Headers $headers -Body $body).Content | ConvertFrom-Json
+$auth = (Invoke-WebRequest -Uri "https://login.microsoftonline.com/tenant/oauth2/v2.0/token" -Method POST -Headers $headers -Body $body).Content | ConvertFrom-Json
 $graphVersion = (Get-InstalledModule -Name "Microsoft.Graph").Version
 if (!($graphVersion)) { throw "GRAPH MODULE NOT INSTALLED" }
 if ($graphVersion[0] -ne "1") {
